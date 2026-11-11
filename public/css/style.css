@@ -1,0 +1,886 @@
+
+/* ==========================================
+   PURCHASE ORDER & BG/FD MANAGEMENT WEBSITE
+   UNIFIED MAROON THEME
+========================================== */
+
+:root {
+    --primary: #8b1e2d;
+    --primary-dark: #701724;
+    --background: #f4f6fa;
+    --white: #ffffff;
+    --text: #263238;
+    --muted: #777777;
+    --border: #d8dce3;
+}
+
+/* ==========================================
+   GLOBAL STYLING
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.topbar {
+    background: var(--primary);
+    color: white;
+    padding: 22px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.topbar h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.topbar p {
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.header-tag {
+    background: rgba(255,255,255,0.15);
+    padding: 9px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* ==========================================
+   NAVIGATION BAR
+========================================== */
+
+.navbar {
+    background: white;
+    padding: 0 5%;
+    display: flex;
+    gap: 25px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #555;
+    padding: 17px 0;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.navbar a.active {
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: var(--primary);
+}
+
+/* ==========================================
+   COMMON CONTAINER
+========================================== */
+
+.container {
+    width: 90%;
+    max-width: 1250px;
+    margin: 35px auto;
+}
+
+.bgfd-page,
+.view-page {
+    background: var(--background);
+}
+
+.bgfd-page .container,
+.view-page .container {
+    width: 92%;
+    max-width: 1500px;
+    margin: 35px auto;
+    padding: 30px;
+    background: var(--white);
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+}
+
+/* ==========================================
+   HEADINGS
+========================================== */
+
+.page-heading {
+    margin-bottom: 22px;
+}
+
+.page-heading h2 {
+    font-size: 23px;
+    margin-bottom: 7px;
+    color: var(--primary);
+}
+
+.page-heading p,
+.section-title p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.bgfd-page h1,
+.view-page h1 {
+    color: var(--primary);
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.bgfd-page h2,
+.view-page h2 {
+    color: var(--primary);
+    font-size: 21px;
+    margin: 20px 0;
+}
+
+/* ==========================================
+   FORM CARD
+========================================== */
+
+.form-card {
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+/* ==========================================
+   FORM GROUPS
+========================================== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.form-group label,
+.bgfd-page label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #34445b;
+}
+
+/* ==========================================
+   INPUTS AND DROPDOWNS
+========================================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.bgfd-page input,
+.bgfd-page select {
+    width: 100%;
+    padding: 12px;
+    min-height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-size: 14px;
+    background: white;
+    color: var(--text);
+    outline: none;
+    font-family: inherit;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.bgfd-page input:focus,
+.bgfd-page select:focus,
+.view-page input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(139,30,45,0.08);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group small {
+    text-align: right;
+    color: var(--muted);
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.bgfd-page input[readonly] {
+    background: #f1f1f1;
+    color: #555;
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   BG/FD FORM LAYOUT
+========================================== */
+
+.bgfd-page #bgFdForm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 24px;
+    margin-top: 25px;
+}
+
+.bgfd-page #bgFdForm .form-group {
+    margin-bottom: 0;
+}
+
+.bgfd-page #bgFdForm hr,
+.bgfd-page #bgFdForm h2,
+.bgfd-page #saveBgFdBtn {
+    grid-column: 1 / -1;
+}
+
+.bgfd-page #bgFdForm hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    margin: 10px 0;
+}
+
+.bgfd-page #bgFdForm h2 {
+    margin: 0;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.form-actions button,
+.refresh-btn,
+.bgfd-page button,
+.view-page button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.save-btn,
+.bgfd-page button,
+.view-page button {
+    background: var(--primary);
+    color: white;
+}
+
+.save-btn:hover,
+.bgfd-page button:hover,
+.view-page button:hover {
+    background: var(--primary-dark);
+}
+
+.save-btn:disabled,
+.bgfd-page button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.reset-btn,
+.refresh-btn {
+    background: #e9edf2;
+    color: #333;
+}
+
+.reset-btn:hover,
+.refresh-btn:hover {
+    background: #dce0e5;
+}
+
+/* ==========================================
+   MESSAGES
+========================================== */
+
+.message {
+    display: none;
+    padding: 13px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.message.success {
+    display: block;
+    background: #e6f5ec;
+    color: #176b39;
+}
+
+.message.error {
+    display: block;
+    background: #fdeaea;
+    color: #a52323;
+}
+
+.bgfd-page .message,
+.view-page .message {
+    margin: 12px 0;
+}
+
+/* ==========================================
+   RECORDS SECTION
+========================================== */
+
+.records-section {
+    margin-top: 35px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 15px;
+}
+
+.section-title h2 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+/* ==========================================
+   TABLE DESIGN
+========================================== */
+
+.table-container {
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background: #faf6f7;
+}
+
+tbody tr:hover {
+    background: #f5e8ea;
+}
+
+/* ==========================================
+   VIEW RECORDS PAGE
+========================================== */
+
+.view-page .container {
+    max-width: 1500px;
+}
+
+.view-page #searchRecords {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px 15px;
+    margin: 12px 0 18px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+}
+
+.view-page .table-container {
+    margin-top: 25px;
+    border: 1px solid #e5e5e5;
+}
+
+.view-page table {
+    width: 100%;
+    min-width: 1400px;
+    background: white;
+}
+
+.view-page thead,
+.view-page th {
+    background: var(--primary);
+    color: white;
+}
+
+.view-page th {
+    padding: 15px 13px;
+    white-space: nowrap;
+}
+
+.view-page td {
+    padding: 13px;
+    color: #45556b;
+    white-space: nowrap;
+}
+
+.view-page tbody tr:nth-child(even) {
+    background: #faf6f7;
+}
+
+.view-page tbody tr:hover {
+    background: #f5e8ea;
+}
+
+/* ==========================================
+   LINKS
+========================================== */
+
+.bgfd-page a,
+.view-page a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 15px;
+}
+
+.bgfd-page a:hover,
+.view-page a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    text-align: center;
+    padding: 22px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form-card {
+        padding: 18px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .bgfd-page .container,
+    .view-page .container {
+        width: 96%;
+        padding: 18px;
+        margin: 15px auto;
+    }
+
+    .bgfd-page #bgFdForm {
+        grid-template-columns: 1fr;
+    }
+
+    .bgfd-page #bgFdForm hr,
+    .bgfd-page #bgFdForm h2,
+    .bgfd-page #saveBgFdBtn {
+        grid-column: 1;
+    }
+
+    .bgfd-page h1,
+    .view-page h1 {
+        font-size: 23px;
+    }
+}
+
+/* ==================================
+   VIEW RECORDS FILTER SECTION
+================================== */
+
+.view-page .page-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 22px 0;
+    padding: 14px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #ead9dc;
+}
+
+.view-page .page-navigation a {
+    color: #8b1e2d;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 9px 14px;
+    border-radius: 6px;
+}
+
+.view-page .page-navigation a:hover,
+.view-page .page-navigation a.active {
+    background: #8b1e2d;
+    color: #ffffff;
+}
+
+.view-page .filter-section {
+    background: #ffffff;
+    padding: 22px;
+    margin: 22px 0;
+    border: 1px solid #ead9dc;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.view-page .filter-section h2,
+.view-page .records-heading h2 {
+    color: #701724;
+    margin-bottom: 18px;
+}
+
+.view-page .filter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.view-page .filter-grid .form-group {
+    margin-bottom: 0;
+}
+
+.view-page .filter-grid input,
+.view-page .filter-grid select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #d5c4c7;
+    border-radius: 7px;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.view-page .filter-grid input:focus,
+.view-page .filter-grid select:focus {
+    outline: none;
+    border-color: #8b1e2d;
+    box-shadow: 0 0 0 2px rgba(139, 30, 45, 0.10);
+}
+
+.view-page .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.view-page .filter-buttons button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 7px;
+    background: #8b1e2d;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.view-page .filter-buttons button:hover {
+    background: #701724;
+}
+
+.view-page .filter-buttons .secondary-button {
+    background: #eeeeee;
+    color: #333333;
+}
+
+.view-page .filter-buttons .secondary-button:hover {
+    background: #dddddd;
+}
+
+.view-page .records-heading {
+    margin: 25px 0 12px;
+}
+
+.view-page .record-count {
+    margin-top: 12px;
+    color: #701724;
+    font-weight: 600;
+}
+
+.view-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.view-page table {
+    min-width: 1500px;
+}
+
+@media (max-width: 800px) {
+    .view-page .filter-grid {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .view-page .filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .view-page .filter-buttons {
+        flex-direction: column;
+    }
+
+    .view-page .filter-buttons button {
+        width: 100%;
+    }
+}
+
+
+/* ==================================
+   MANAGE PURCHASE ORDERS PAGE
+================================== */
+
+.manage-po-page .page-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 22px 0;
+    padding: 14px;
+    background: #ffffff;
+    border: 1px solid #ead9dc;
+    border-radius: 10px;
+}
+
+.manage-po-page .page-navigation a {
+    color: #8b1e2d;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 9px 14px;
+    border-radius: 6px;
+}
+
+.manage-po-page .page-navigation a:hover,
+.manage-po-page .page-navigation a.active {
+    background: #8b1e2d;
+    color: #ffffff;
+}
+
+.manage-po-page .manage-filter-section {
+    background: #ffffff;
+    padding: 22px;
+    margin: 22px 0;
+    border: 1px solid #ead9dc;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.manage-po-page .manage-filter-section h2,
+.manage-po-page .manage-table-heading h2 {
+    color: #701724;
+    margin-bottom: 16px;
+}
+
+.manage-po-page .manage-filter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.manage-po-page .manage-filter-grid .form-group {
+    margin-bottom: 0;
+}
+
+.manage-po-page .manage-filter-grid input,
+.manage-po-page .manage-filter-grid select,
+.manage-po-page .po-status-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d5c4c7;
+    border-radius: 7px;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.manage-po-page .manage-filter-grid input:focus,
+.manage-po-page .manage-filter-grid select:focus,
+.manage-po-page .po-status-select:focus {
+    outline: none;
+    border-color: #8b1e2d;
+    box-shadow: 0 0 0 2px rgba(139, 30, 45, 0.10);
+}
+
+.manage-po-page .manage-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.manage-po-page .manage-filter-buttons button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 7px;
+    background: #8b1e2d;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.manage-po-page .manage-filter-buttons button:hover {
+    background: #701724;
+}
+
+.manage-po-page .manage-filter-buttons .secondary-button {
+    background: #eeeeee;
+    color: #333333;
+}
+
+.manage-po-page .manage-filter-buttons .secondary-button:hover {
+    background: #dddddd;
+}
+
+.manage-po-page .manage-table-heading {
+    margin: 25px 0 12px;
+}
+
+.manage-po-page .manage-table-heading p {
+    margin-bottom: 12px;
+    color: #555555;
+}
+
+.manage-po-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.manage-po-page table {
+    min-width: 1250px;
+}
+
+.manage-po-page .po-status-select {
+    min-width: 120px;
+}
+
+.manage-po-page .po-action-cell {
+    white-space: nowrap;
+}
+
+.manage-po-page .po-action-cell button {
+    padding: 8px 12px;
+    margin: 3px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.manage-po-page .po-update-button {
+    background: #8b1e2d;
+    color: #ffffff;
+}
+
+.manage-po-page .po-update-button:hover {
+    background: #701724;
+}
+
+.manage-po-page .po-delete-button {
+    background: #eeeeee;
+    color: #9b1c1c;
+    border: 1px solid #e0bfc3 !important;
+}
+
+.manage-po-page .po-delete-button:hover {
+    background: #f8e6e8;
+}
+
+.manage-po-page button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.manage-po-page .record-count {
+    margin-top: 12px;
+    color: #701724;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .manage-po-page .manage-filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .manage-po-page .manage-filter-buttons {
+        flex-direction: column;
+    }
+
+    .manage-po-page .manage-filter-buttons button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add BG/FD Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bgfd-page">
+
+    <div class="container">
+
+        <h1>Add BG/FD Details</h1>
+        <p>Select a saved Purchase Order and enter its BG/FD details.</p>
+
+        <div id="message" class="message"></div>
+
+        <form id="bgFdForm">
+
+            <div class="form-group">
+                <label for="po_id">PO Number *</label>
+                <select id="po_id" name="po_id" required>
+                    <option value="">Loading Purchase Orders...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="product_name">Product Name</label>
+                <input type="text" id="product_name" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="railway_unit">Railway Unit</label>
+                <input type="text" id="railway_unit" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="order_status">Order Status</label>
+                <input type="text" id="order_status" readonly>
+            </div>
+
+            <hr>
+
+            <h2>BG/FD Information</h2>
+
+            <div class="form-group">
+                <label for="bg_fd_number">BG/FD Number *</label>
+                <input type="text" id="bg_fd_number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="extended_bg_fd_number">Extended BG/FD Number</label>
+                <input type="text" id="extended_bg_fd_number">
+            </div>
+
+            <div class="form-group">
+                <label for="bg_expiry_date">BG Expiry Date</label>
+                <input type="date" id="bg_expiry_date">
+            </div>
+
+            <div class="form-group">
+                <label for="bg_fd_lien_amount">BG/FD Lien Amount</label>
+                <input type="number" id="bg_fd_lien_amount" step="0.01" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="bg_claim_date">BG Claim Date</label>
+                <input type="date" id="bg_claim_date">
+            </div>
+
+            <div class="form-group">
+                <label for="contract_extension_date">Contract Extension Date</label>
+                <input type="date" id="contract_extension_date">
+            </div>
+
+            <div class="form-group">
+                <label for="contract_expiry_date">Contract Expiry Date</label>
+                <input type="date" id="contract_expiry_date">
+            </div>
+
+            <div class="form-group">
+                <label for="fd_margin_amount">FD Margin Amount</label>
+                <input type="number" id="fd_margin_amount" step="0.01" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="fd_margin_number">FD Margin Number</label>
+                <input type="number" id="fd_margin_number" min="0">
+            </div>
+
+            <button type="submit" id="saveBgFdBtn">
+                Save BG/FD Details
+            </button>
+
+        </form>
+
+        <br>
+        <a href="/">Back to Purchase Orders</a>
+
+    </div>
+
+    <script src="/js/bg-fd.js"></script>
+
+</body>
+</html>

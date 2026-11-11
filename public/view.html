@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Records</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="view-page">
+
+    <div class="container">
+
+        <h1>View Records</h1>
+        <p>View and filter all saved Purchase Orders and BG/FD details.</p>
+
+        <!-- Navigation -->
+        <div class="page-navigation">
+            <a href="/">Purchase Orders</a>
+            <a href="/bg-fd.html">Add BG/FD Details</a>
+            <a href="/view.html" class="active">View Records</a>
+            <a href="/manage-po.html">Manage Purchase Orders</a>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-section">
+
+            <h2>Filter Records</h2>
+
+            <div class="filter-grid">
+
+                <div class="form-group">
+                    <label for="searchRecords">Search</label>
+                    <input
+                        type="text"
+                        id="searchRecords"
+                        placeholder="PO Number or BG/FD Number"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="filterStatus">Order Status</label>
+                    <select id="filterStatus">
+                        <option value="">All Order Statuses</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="filterProduct">Product Name</label>
+                    <select id="filterProduct">
+                        <option value="">All Products</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="filterRailway">Railway Unit</label>
+                    <select id="filterRailway">
+                        <option value="">All Railway Units</option>
+                        <option value="RCF">RCF</option>
+                        <option value="MCF">MCF</option>
+                        <option value="ICF">ICF</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fromDate">BG Expiry From</label>
+                    <input type="date" id="fromDate">
+                </div>
+
+                <div class="form-group">
+                    <label for="toDate">BG Expiry To</label>
+                    <input type="date" id="toDate">
+                </div>
+
+            </div>
+
+            <div class="filter-buttons">
+                <button type="button" id="applyFilters">
+                    Apply Filters
+                </button>
+
+                <button type="button" id="resetFilters" class="secondary-button">
+                    Reset Filters
+                </button>
+
+                <button type="button" id="refreshRecords" class="secondary-button">
+                    Refresh Records
+                </button>
+            </div>
+
+        </div>
+
+        <div id="recordMessage" class="message"></div>
+
+        <!-- Records Table -->
+        <div class="records-heading">
+            <h2>Saved BG/FD Records</h2>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>PO Number</th>
+                        <th>Product Name</th>
+                        <th>Railway Unit</th>
+                        <th>Order Status</th>
+                        <th>BG/FD Number</th>
+                        <th>Extended BG/FD Number</th>
+                        <th>BG Expiry Date</th>
+                        <th>BG/FD Lien Amount</th>
+                        <th>BG Claim Date</th>
+                        <th>Contract Extension Date</th>
+                        <th>Contract Expiry Date</th>
+                        <th>FD Margin Amount</th>
+                        <th>FD Margin Number</th>
+                    </tr>
+                </thead>
+
+                <tbody id="recordsTableBody">
+                    <tr>
+                        <td colspan="13">Loading records...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p id="recordCount" class="record-count"></p>
+
+    </div>
+
+    <script src="/js/view.js"></script>
+
+</body>
+</html>
+

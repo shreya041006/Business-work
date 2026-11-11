@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Order Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div>
+            <h1>PO & BG/FD Management</h1>
+            <p>Purchase Order Management System</p>
+        </div>
+        <div class="header-tag">Management Portal</div>
+    </header>
+
+   <nav class="navbar">
+    <a href="/" class="active">Add Purchase Order</a>
+    <a href="/bg-fd.html">Add BG/FD Details</a>
+    <a href="/view.html">View Records</a>
+    <a href="/manage-po.html">Manage Purchase Orders</a>
+</nav>
+
+    <main class="container">
+
+        <section class="page-heading">
+            <h2>Add New Purchase Order</h2>
+            <p>Enter the purchase order details in the fields below.</p>
+        </section>
+
+        <section class="form-card">
+
+            <div id="message" class="message"></div>
+
+            <form id="poForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="po_number">PO Number *</label>
+                        <input
+                            type="text"
+                            id="po_number"
+                            name="po_number"
+                            maxlength="100"
+                            placeholder="Enter PO Number"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order_date">Order Date *</label>
+                        <input
+                            type="date"
+                            id="order_date"
+                            name="order_date"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_name">Product Name *</label>
+                        <select
+                            id="product_name"
+                            name="product_name"
+                            required
+                        >
+                            <option value="">Select Product</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity *</label>
+                        <input
+                            type="number"
+                            id="quantity"
+                            name="quantity"
+                            min="0"
+                            step="0.01"
+                            placeholder="Enter Quantity"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order_start_date">Order Start Date</label>
+                        <input
+                            type="date"
+                            id="order_start_date"
+                            name="order_start_date"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="completion_date">Completion Date</label>
+                        <input
+                            type="date"
+                            id="completion_date"
+                            name="completion_date"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="railway_unit">Railway Unit *</label>
+                        <select
+                            id="railway_unit"
+                            name="railway_unit"
+                            required
+                        >
+                            <option value="">Select Railway Unit</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order_status">Order Status *</label>
+                        <select
+                            id="order_status"
+                            name="order_status"
+                            required
+                        >
+                            <option value="">Select Order Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity_supplied">
+                            Quantity Supplied
+                        </label>
+                        <input
+                            type="number"
+                            id="quantity_supplied"
+                            name="quantity_supplied"
+                            min="0"
+                            step="0.01"
+                            value="0"
+                            placeholder="Enter Supplied Quantity"
+                        >
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="remarks">Remarks</label>
+                        <textarea
+                            id="remarks"
+                            name="remarks"
+                            maxlength="255"
+                            rows="3"
+                            placeholder="Enter remarks (maximum 255 characters)"
+                        ></textarea>
+                        <small id="remarksCount">0 / 255 characters</small>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="reset-btn">
+                        Clear Form
+                    </button>
+
+                    <button type="submit" id="saveBtn" class="save-btn">
+                        Save Purchase Order
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <section class="records-section">
+
+            <div class="section-title">
+                <div>
+                    <h2>Recently Added Purchase Orders</h2>
+                    <p>Latest records saved in the database</p>
+                </div>
+
+                <button id="refreshBtn" class="refresh-btn">
+                    Refresh
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PO Number</th>
+                            <th>Order Date</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Railway Unit</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="poTableBody">
+                        <tr>
+                            <td colspan="6">Loading records...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Purchase Order & BG/FD Management System</p>
+    </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

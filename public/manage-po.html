@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Purchase Orders</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="manage-po-page">
+
+    <div class="container">
+
+        <h1>Manage Purchase Orders</h1>
+        <p>Update the status or delete saved Purchase Orders.</p>
+
+        <!-- Navigation -->
+        <div class="page-navigation">
+            <a href="/">Purchase Orders</a>
+            <a href="/bg-fd.html">Add BG/FD Details</a>
+            <a href="/view.html">View Records</a>
+            <a href="/manage-po.html" class="active">Manage Purchase Orders</a>
+        </div>
+
+        <!-- Filters -->
+        <div class="manage-filter-section">
+
+            <h2>Find Purchase Orders</h2>
+
+            <div class="manage-filter-grid">
+
+                <div class="form-group">
+                    <label for="searchPO">Search PO Number</label>
+                    <input
+                        type="text"
+                        id="searchPO"
+                        placeholder="Enter PO Number"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="filterProduct">Product Name</label>
+                    <select id="filterProduct">
+                        <option value="">All Products</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="filterRailway">Railway Unit</label>
+                    <select id="filterRailway">
+                        <option value="">All Railway Units</option>
+                        <option value="RCF">RCF</option>
+                        <option value="MCF">MCF</option>
+                        <option value="ICF">ICF</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="filterStatus">Order Status</label>
+                    <select id="filterStatus">
+                        <option value="">All Order Statuses</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="manage-filter-buttons">
+                <button type="button" id="resetManageFilters" class="secondary-button">
+                    Reset Filters
+                </button>
+
+                <button type="button" id="refreshPOs">
+                    Refresh Purchase Orders
+                </button>
+            </div>
+
+        </div>
+
+        <div id="manageMessage" class="message"></div>
+
+        <!-- PO Table -->
+        <div class="manage-table-heading">
+            <h2>Purchase Order Records</h2>
+            <p>Change the status in the table and select Update to save it.</p>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>PO Number</th>
+                        <th>Order Date</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Railway Unit</th>
+                        <th>Order Status</th>
+                        <th>Quantity Supplied</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="poTableBody">
+                    <tr>
+                        <td colspan="8">Loading Purchase Orders...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p id="poCount" class="record-count"></p>
+
+    </div>
+
+    <script src="/js/manage-po.js"></script>
+
+</body>
+</html>
